@@ -37,19 +37,11 @@ fun main(args: Array<String>) {
     println("x = ${x--}")
     println("x = ${--x}")
 
-    val myNumber = 100
-    if (myNumber != 150) {
-        println("They are not equal")
-    }else if (myNumber <= 150){
-        println("Less than or equal to 150")
+    val isPlaying = true
+    val score = 100
+    if (isPlaying && score == 100){
+        println("Next level opened")
     }else {
-        println("All the conditions failed.")
-    }
-
-    val isActive = false
-    if (!isActive == true){
-        println("The user is active")
-    }else {
-        println("The user is not active")
+        println("Still at the same level")
     }
 }
