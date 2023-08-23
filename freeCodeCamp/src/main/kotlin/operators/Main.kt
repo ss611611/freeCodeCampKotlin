@@ -37,12 +37,19 @@ fun main(args: Array<String>) {
     println("x = ${x--}")
     println("x = ${--x}")
 
-    val myNumber = 150
-    if (myNumber >= 150) {
-        println("Greater than 150")
-    }else if (myNumber > 90){
-        println("Greater than 90")
+    val myNumber = 100
+    if (myNumber != 150) {
+        println("They are not equal")
+    }else if (myNumber <= 150){
+        println("Less than or equal to 150")
     }else {
         println("All the conditions failed.")
+    }
+
+    val isActive = false
+    if (!isActive == true){
+        println("The user is active")
+    }else {
+        println("The user is not active")
     }
 }
