@@ -1,20 +1,13 @@
 package functions
 
 fun main(args: Array<String>) {
-    val max = getMax(3, 100,10)
-    println(max)
+    sendMessage(
+//        message = "Hello",
+        name = "Alexa"
+    )
 }
 
-fun getMax(a: Int, b: Int) = if (a > b) a else b
-
-fun getMax(a: Double, b: Double) = if (a > b) a else b
-
-fun getMax(a: Int, b: Int, c: Int): Int {
-    return if (a >= b && a >= c){
-        a
-    }else if (b >= a && b >= c){
-        b
-    }else{
-        c
-    }
+fun sendMessage(name: String = "User", message: String = sendText()) {
+    println("Name = $name and message = $message")
 }
+fun sendText() = "Some text!"
