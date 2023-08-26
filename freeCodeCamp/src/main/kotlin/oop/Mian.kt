@@ -1,11 +1,9 @@
 package oop
 
+import java.awt.Color
+
 fun main(args: Array<String>) {
-    val car1 = Car()
-    car1.name = "Tesla"
-    car1.model = "S Plaid"
-    car1.color = "Red"
-    car1.doors = 4
+    val car1 = Car(" Tesla  ", "S Plaid", "Red", 4)
 
     println("Name = ${car1.name} ")
     println("Model = ${car1.model} ")
@@ -15,12 +13,7 @@ fun main(args: Array<String>) {
     car1.move()
     car1.stop()
 
-    val car2 = Car()
-    car2.name ="Ford"
-    car2.model = "Mustang"
-    car2.color = "Blue"
-    car2.doors = 2
-
+    val car2 = Car("Ford", "Mustang", "Blue", 2)
     println("\n")
     println("Name = ${car2.name} ")
     println("Model = ${car2.model} ")
@@ -31,12 +24,8 @@ fun main(args: Array<String>) {
     car2.stop()
 }
 
-class Car {
-    var name = ""
-    var model = ""
-    var color = ""
-    var doors = 0
-
+class Car (name: String, var model: String, var color: String, var doors: Int) {
+    var name = name.trim()
     fun move() {
         println("The car $name is moving")
     }
