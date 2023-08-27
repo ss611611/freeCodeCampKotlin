@@ -1,9 +1,28 @@
 package oop
 
+
 fun main(args: Array<String>) {
-    
+
 }
 
+
+/*
+OOP: Lazy Initialization
+ */
+
+//fun main(args: Array<String>) {
+//    val user1 = User("Alex","Dobbin",23)
+//    val user2 by lazy {
+//        User("User1", "LastName",0)
+//    }
+//
+//    println(user2.firstName)
+//}
+//class User(var firstName: String, var lastName: String, var age: Int) {
+//    init {
+//        println("User: $firstName was created")
+//    }
+//}
 
 
 /*
