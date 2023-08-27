@@ -1,15 +1,30 @@
 package oop
 
 fun main(args: Array<String>) {
-    val user = User("Alex", "Dobbbi", 23)
-
-    user.favoriteMovie = "Interstellar"
-    println(user.favoriteMovie)
+    val result = Calculator.sum(5, 10)
+    val max = Int.MAX_VALUE
+    println(result)
 }
 
-class User(var firstName: String, var lastName: String, var age: Int) {
-    lateinit var favoriteMovie: String
+class Calculator() {
+    companion object {
+        fun sum(a: Int, b: Int): Int {
+            return a + b
+        }
+    }
 }
+
+
+//fun main(args: Array<String>) {
+//    val user = User("Alex", "Dobbbi", 23)
+//
+//    user.favoriteMovie = "Interstellar"
+//    println(user.favoriteMovie)
+//}
+//
+//class User(var firstName: String, var lastName: String, var age: Int) {
+//    lateinit var favoriteMovie: String
+//}
 
 //fun main(args: Array<String>) {
 //    val user = User("Alex")
