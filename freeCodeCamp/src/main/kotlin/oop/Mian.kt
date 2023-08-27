@@ -1,20 +1,78 @@
 package oop
 
 fun main(args: Array<String>) {
-    val result = Calculator.sum(5, 10)
-    val max = Int.MAX_VALUE
-    println(result)
-}
-
-class Calculator() {
-    companion object {
-        fun sum(a: Int, b: Int): Int {
-            return a + b
-        }
-    }
+    
 }
 
 
+
+/*
+OOP: Singleton -2
+ */
+
+//fun main(args: Array<String>) {
+//    println(Database)
+//    println(Database)
+//    println(Database)
+//    println(Database)
+//    println(Database)
+//    println(Database)
+//}
+//
+//object Database {
+//    init {
+//        println("Database created")
+//    }
+//}
+
+/*
+OOP: Singleton -1
+ */
+
+//fun main(args: Array<String>) {
+//    val instance = Database.getInstance()
+//    val instance2 = Database.getInstance()
+//    println(instance)
+//    println(instance2)
+//}
+//
+//class Database private constructor() {
+//
+//    companion object {
+//        private var instance: Database? = null
+//
+//        fun getInstance(): Database? {
+//            if (instance == null) {
+//                instance = Database()
+//            }
+//
+//            return instance
+//        }
+//    }
+//}
+
+
+/*
+OOP: Companion Object
+ */
+
+//fun main(args: Array<String>) {
+//    val result = Calculator.sum(5, 10)
+//    val max = Int.MAX_VALUE
+//    println(result)
+//}
+//
+//class Calculator() {
+//    companion object {
+//        fun sum(a: Int, b: Int): Int {
+//            return a + b
+//        }
+//    }
+//}
+
+/*
+OOP: lateinit keyword
+ */
 //fun main(args: Array<String>) {
 //    val user = User("Alex", "Dobbbi", 23)
 //
@@ -44,6 +102,10 @@ class Calculator() {
 //    println(friend.age)
 ////    println("Name ${friend.name} ")
 //}
+
+/*
+OOP: Getters and Setters
+ */
 
 //class User(firstName: String, var lastName: String = "LastName", var age: Int = 0) {
 //    var firstName = firstName
