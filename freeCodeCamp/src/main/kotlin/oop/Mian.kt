@@ -1,20 +1,68 @@
 package oop
 
+fun main() {
+    val alexAccount = Account("Alex")
+    alexAccount.deposit(1000)
+    alexAccount.withdraw(500)
+    alexAccount.deposit(-20)
+    alexAccount.withdraw(-100)
 
-fun main(args: Array<String>) {
-    val listView = ListView(arrayOf("Name 1", "Name 2", "Name 3", "Name 4"))
-
-    listView.ListViewItem().displayItem(2)
+    val balance = alexAccount.calculateBalance()
+    println("Balance is $balance")
+    alexAccount.balance = 1000
 }
 
-class ListView(val items: Array<String>) {
-    inner class ListViewItem() {
+class Account(val accountName: String) {
+    private var balance = 0
+    private var transactions = mutableListOf<Int>()
 
-        fun displayItem(position: Int) {
-            println(items[position])
+    fun deposit(amount: Int) {
+        if (amount > 0) {
+            transactions.add(amount)
+            balance += amount
+            println("$amount deposited. Balance is now ${this.balance}")
+        } else {
+            println("Cannot deposit negative sums")
         }
     }
+
+    fun withdraw(withdrawal: Int) {
+        if (-withdrawal < 0) {
+            transactions.add(-withdrawal)
+            this.balance += -withdrawal
+            println("$withdrawal withdrawn. Balance is now ${this.balance}")
+        } else {
+            println("Cannot withdraw negative sums")
+        }
+    }
+
+    fun calculateBalance(): Int {
+        this.balance = 0
+        for (transaction in transactions) {
+            this.balance += transaction
+        }
+        return this.balance
+    }
 }
+
+/*
+OOP: Inner Classes
+ */
+
+//fun main(args: Array<String>) {
+//    val listView = ListView(arrayOf("Name 1", "Name 2", "Name 3", "Name 4"))
+//
+//    listView.ListViewItem().displayItem(2)
+//}
+//
+//class ListView(val items: Array<String>) {
+//    inner class ListViewItem() {
+//
+//        fun displayItem(position: Int) {
+//            println(items[position])
+//        }
+//    }
+//}
 
 
 /*
