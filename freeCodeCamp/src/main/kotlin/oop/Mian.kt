@@ -1,40 +1,77 @@
 package oop
 
 fun main(args: Array<String>) {
-    val car = Car("BMW", "RED", 1, 4)
-    val plane = Plane("Boeing","WHITE and BLUE",4,4)
 
-    car.move()
-    car.stop()
+    val view = View()
+    val button = Button("Sing Up","Center")
+    val roundButton = RoundButton("Sing Up","Center",30)
 
-    plane.move()
-    plane.stop()
+    view.draw()
+    button.draw()
+    roundButton.draw()
 }
 
-open class Vehicle(val name: String, val color: String) {
-    open fun move() {
-        println("$name is moving")
-    }
-
-    open fun stop() {
-        println("$name has stopped")
+open class View() {
+    open fun draw() {
+        println("Drawing the view")
     }
 }
 
-class Car(name: String, color: String, val engines: Int, val doors: Int) : Vehicle(name, color) {
-
-}
-
-class Plane(name: String, color: String, val engines: Int, val doors: Int) : Vehicle(name, color) {
-    override fun move() {
-        flying()
-        super.move()
-    }
-
-    fun flying() {
-        println("The plane is flying")
+open class Button(val text: String, val orientation: String): View() {
+    override fun draw() {
+        //here is the code for creating the button
+        println("Drawing the button")
+        super.draw()
     }
 }
+
+class RoundButton(text: String, orientation: String, val corners: Int): Button(text, orientation) {
+    override fun draw() {
+        println("Drawing the round button")
+        super.draw()
+    }
+}
+
+
+/*
+OOP: Inheritance 1
+ */
+
+//fun main(args: Array<String>) {
+//    val car = Car("BMW", "RED", 1, 4)
+//    val plane = Plane("Boeing","WHITE and BLUE",4,4)
+//
+//    car.move()
+//    car.stop()
+//
+//    plane.move()
+//    plane.stop()
+//}
+//
+//open class Vehicle(val name: String, val color: String) {
+//    open fun move() {
+//        println("$name is moving")
+//    }
+//
+//    open fun stop() {
+//        println("$name has stopped")
+//    }
+//}
+//
+//class Car(name: String, color: String, val engines: Int, val doors: Int) : Vehicle(name, color) {
+//
+//}
+//
+//class Plane(name: String, color: String, val engines: Int, val doors: Int) : Vehicle(name, color) {
+//    override fun move() {
+//        flying()
+//        super.move()
+//    }
+//
+//    fun flying() {
+//        println("The plane is flying")
+//    }
+//}
 
 
 /*
