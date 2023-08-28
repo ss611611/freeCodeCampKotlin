@@ -1,49 +1,90 @@
 package oop
 
-fun main() {
-    val alexAccount = Account("Alex")
-    alexAccount.deposit(1000)
-    alexAccount.withdraw(500)
-    alexAccount.deposit(-20)
-    alexAccount.withdraw(-100)
+fun main(args: Array<String>) {
+    val car = Car("BMW", "RED", 1, 4)
+    val plane = Plane("Boeing","WHITE and BLUE",4,4)
 
-    val balance = alexAccount.calculateBalance()
-    println("Balance is $balance")
-    alexAccount.balance = 1000
+    car.move()
+    car.stop()
+
+    plane.move()
+    plane.stop()
 }
 
-class Account(val accountName: String) {
-    private var balance = 0
-    private var transactions = mutableListOf<Int>()
-
-    fun deposit(amount: Int) {
-        if (amount > 0) {
-            transactions.add(amount)
-            balance += amount
-            println("$amount deposited. Balance is now ${this.balance}")
-        } else {
-            println("Cannot deposit negative sums")
-        }
+open class Vehicle(val name: String, val color: String) {
+    open fun move() {
+        println("$name is moving")
     }
 
-    fun withdraw(withdrawal: Int) {
-        if (-withdrawal < 0) {
-            transactions.add(-withdrawal)
-            this.balance += -withdrawal
-            println("$withdrawal withdrawn. Balance is now ${this.balance}")
-        } else {
-            println("Cannot withdraw negative sums")
-        }
-    }
-
-    fun calculateBalance(): Int {
-        this.balance = 0
-        for (transaction in transactions) {
-            this.balance += transaction
-        }
-        return this.balance
+    open fun stop() {
+        println("$name has stopped")
     }
 }
+
+class Car(name: String, color: String, val engines: Int, val doors: Int) : Vehicle(name, color) {
+
+}
+
+class Plane(name: String, color: String, val engines: Int, val doors: Int) : Vehicle(name, color) {
+    override fun move() {
+        flying()
+        super.move()
+    }
+
+    fun flying() {
+        println("The plane is flying")
+    }
+}
+
+
+/*
+OOP Challenge
+ */
+
+//fun main() {
+//    val alexAccount = Account("Alex")
+//    alexAccount.deposit(1000)
+//    alexAccount.withdraw(500)
+//    alexAccount.deposit(-20)
+//    alexAccount.withdraw(-100)
+//
+//    val balance = alexAccount.calculateBalance()
+//    println("Balance is $balance")
+//    alexAccount.balance = 1000
+//}
+//
+//class Account(val accountName: String) {
+//    private var balance = 0
+//    private var transactions = mutableListOf<Int>()
+//
+//    fun deposit(amount: Int) {
+//        if (amount > 0) {
+//            transactions.add(amount)
+//            balance += amount
+//            println("$amount deposited. Balance is now ${this.balance}")
+//        } else {
+//            println("Cannot deposit negative sums")
+//        }
+//    }
+//
+//    fun withdraw(withdrawal: Int) {
+//        if (-withdrawal < 0) {
+//            transactions.add(-withdrawal)
+//            this.balance += -withdrawal
+//            println("$withdrawal withdrawn. Balance is now ${this.balance}")
+//        } else {
+//            println("Cannot withdraw negative sums")
+//        }
+//    }
+//
+//    fun calculateBalance(): Int {
+//        this.balance = 0
+//        for (transaction in transactions) {
+//            this.balance += transaction
+//        }
+//        return this.balance
+//    }
+//}
 
 /*
 OOP: Inner Classes
