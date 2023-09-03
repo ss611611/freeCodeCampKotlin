@@ -1,38 +1,69 @@
 package oop
 
-import java.lang.Exception
 
-fun main() {
 
-    val success = Result.Success("SUCCESS")
-    val progress = Result.Progress("PROGRESS")
+fun main(args: Array<String>) {
 
-    getData(progress)
 }
 
-fun  getData(result: Result) {
-    when(result) {
-        is Result.Success -> result.showMessage()
-        is Result.Progress -> result.showMessage()
-        is Result.Error.NonRecoverableError -> result.showMessage()
-        is Result.Error.RecoverableError -> result.showMessage()
-    }
+abstract class Vehicle {
+
+    abstract fun move()
+
+    abstract fun stop()
 }
 
-sealed class Result(val message: String) {
-    fun showMessage() {
-        println("Result: $message")
+class Car(var name: String, var color: String, val engines: Int, val  door: Int): Vehicle(){
+    override fun move() {
+
     }
-    class Success(message: String) : Result(message)
-    sealed class Error(message: String) : Result(message) {
-        class RecoverableError(exception: Exception, message: String) : Error(message)
-        class NonRecoverableError(exception: Exception, message: String) : Error(message)
+
+    override fun stop() {
+
     }
-    class Progress(message: String) : Result(message)
+
 }
 
 
+/*
+OOP: Sealed Class
+ */
 
+//import java.lang.Exception
+//
+//fun main() {
+//
+//    val success = Result.Success("SUCCESS")
+//    val progress = Result.Progress("PROGRESS")
+//
+//    getData(progress)
+//}
+//
+//fun  getData(result: Result) {
+//    when(result) {
+//        is Result.Success -> result.showMessage()
+//        is Result.Progress -> result.showMessage()
+//        is Result.Error.NonRecoverableError -> result.showMessage()
+//        is Result.Error.RecoverableError -> result.showMessage()
+//    }
+//}
+//
+//sealed class Result(val message: String) {
+//    fun showMessage() {
+//        println("Result: $message")
+//    }
+//    class Success(message: String) : Result(message)
+//    sealed class Error(message: String) : Result(message) {
+//        class RecoverableError(exception: Exception, message: String) : Error(message)
+//        class NonRecoverableError(exception: Exception, message: String) : Error(message)
+//    }
+//    class Progress(message: String) : Result(message)
+//}
+
+
+/*
+OOP: Inheritance 2
+ */
 
 //fun main(args: Array<String>) {
 //
