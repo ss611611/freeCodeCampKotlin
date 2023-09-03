@@ -1,36 +1,70 @@
 package oop
 
-fun main(args: Array<String>) {
+import java.lang.Exception
 
-    val view = View()
-    val button = Button("Sing Up","Center")
-    val roundButton = RoundButton("Sing Up","Center",30)
+fun main() {
 
-    view.draw()
-    button.draw()
-    roundButton.draw()
+    val success = Result.Success("SUCCESS")
+    val progress = Result.Progress("PROGRESS")
+
+    getData(progress)
 }
 
-open class View() {
-    open fun draw() {
-        println("Drawing the view")
+fun  getData(result: Result) {
+    when(result) {
+        is Result.Success -> result.showMessage()
+        is Result.Progress -> result.showMessage()
+        is Result.Error.NonRecoverableError -> result.showMessage()
+        is Result.Error.RecoverableError -> result.showMessage()
     }
 }
 
-open class Button(val text: String, val orientation: String): View() {
-    override fun draw() {
-        //here is the code for creating the button
-        println("Drawing the button")
-        super.draw()
+sealed class Result(val message: String) {
+    fun showMessage() {
+        println("Result: $message")
     }
+    class Success(message: String) : Result(message)
+    sealed class Error(message: String) : Result(message) {
+        class RecoverableError(exception: Exception, message: String) : Error(message)
+        class NonRecoverableError(exception: Exception, message: String) : Error(message)
+    }
+    class Progress(message: String) : Result(message)
 }
 
-class RoundButton(text: String, orientation: String, val corners: Int): Button(text, orientation) {
-    override fun draw() {
-        println("Drawing the round button")
-        super.draw()
-    }
-}
+
+
+
+//fun main(args: Array<String>) {
+//
+//    val view = View()
+//    val button = Button("Sing Up","Center")
+//    val roundButton = RoundButton("Sing Up","Center",30)
+//
+//    view.draw()
+//    button.draw()
+//    roundButton.draw()
+//}
+//
+//open class View() {
+//    open fun draw() {
+//        println("Drawing the view")
+//    }
+//}
+//
+//open class Button(val text: String, val orientation: String): View() {
+//    override fun draw() {
+//        //here is the code for creating the button
+//        println("Drawing the button")
+//        super.draw()
+//    }
+//}
+//
+//class RoundButton(text: String, orientation: String, val corners: Int): Button(text, orientation) {
+//    override fun draw() {
+//        println("Drawing the round button")
+//        super.draw()
+//    }
+//}
 
 
 /*
