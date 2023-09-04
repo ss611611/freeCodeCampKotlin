@@ -1,28 +1,66 @@
 package oop
 
-
-
 fun main(args: Array<String>) {
+    val user1 = User("Alex","Dobbin",23)
+    val user2 = User("Alex","Dobbin",23)
+
+
+    println(user1.equals(user2))
+
+    println(user1)
+    println(user2)
 
 }
 
-abstract class Vehicle {
+class User(var firstName: String, var lastName: String, var age: Int) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) {
+            return true
+        }
 
-    abstract fun move()
-
-    abstract fun stop()
-}
-
-class Car(var name: String, var color: String, val engines: Int, val  door: Int): Vehicle(){
-    override fun move() {
-
+        if (other is User) {
+            return this.firstName == other.firstName
+                    && this.lastName == other.lastName
+                    && this.age == other.age
+        }
+        return false
     }
 
-    override fun stop() {
-
+    override fun hashCode(): Int {
+        return 0
     }
 
+    override fun toString(): String {
+        return "User(firstName='$firstName', lastName='$lastName', age=$age)"
+    }
 }
+
+
+/*
+OOP: Abstract Classes
+ */
+
+//fun main(args: Array<String>) {
+//
+//}
+//
+//abstract class Vehicle {
+//
+//    abstract fun move()
+//
+//    abstract fun stop()
+//}
+//
+//class Car(var name: String, var color: String, val engines: Int, val  door: Int): Vehicle(){
+//    override fun move() {
+//
+//    }
+//
+//    override fun stop() {
+//
+//    }
+//
+//}
 
 
 /*

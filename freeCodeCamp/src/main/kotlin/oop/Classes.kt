@@ -11,14 +11,14 @@ package oop
 //    }
 //}
 
-object Database {
-    init {
-        println("Database created")
-    }
-}
-
-class User(var firstName: String, var lastName: String, var age: Int) {
-    init {
-        println("User: $firstName was created")
-    }
-}
+//object Database {
+//    init {
+//        println("Database created")
+//    }
+//}
+//
+//class User(var firstName: String, var lastName: String, var age: Int) {
+//    init {
+//        println("User: $firstName was created")
+//    }
+//}
