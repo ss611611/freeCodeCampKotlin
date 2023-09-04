@@ -1,34 +1,73 @@
 package oop
 
-fun main(args: Array<String>) {
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
 
-    val loginButton = Button("Login",1232, object : OnClickListener{
-        override fun onClick() {
-            // login the user
-        }
-
-    })
-    val signUpButton = Button("Sign Up",1232, object : OnClickListener{
-        override fun onClick() {
-            // sign up the user
-        }
-
-    })
-}
-
-class Button(val text: String, val id: Int, onClickListener: OnClickListener)
-
-class ClickListener() : OnClickListener {
-    override fun onClick() {
-
+fun main() {
+    val user = User()
+    with(user) {
+        firstName = "Alex"
+        lastName = "Dobinca"
+    }
+    with(user) {
+        println(firstName)
+        println(lastName)
     }
 
 }
 
-
-interface OnClickListener {
-    fun onClick()
+class User {
+    var firstName by FormatDelegate()
+    var lastName by FormatDelegate()
 }
+class FormatDelegate : ReadWriteProperty<Any?, String> {
+    private var formatDelegate: String = ""
+    override fun getValue(
+        thisRef: Any?,
+        property: KProperty<*>
+    ): String {
+        return formatDelegate
+    }
+
+    override fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
+        formatDelegate = value.lowercase()
+    }
+}
+
+
+/*
+OOP: Object Expression
+ */
+
+//fun main(args: Array<String>) {
+//
+//    val loginButton = Button("Login",1232, object : OnClickListener{
+//        override fun onClick() {
+//            // login the user
+//        }
+//
+//    })
+//    val signUpButton = Button("Sign Up",1232, object : OnClickListener{
+//        override fun onClick() {
+//            // sign up the user
+//        }
+//
+//    })
+//}
+//
+//class Button(val text: String, val id: Int, onClickListener: OnClickListener)
+//
+//class ClickListener() : OnClickListener {
+//    override fun onClick() {
+//
+//    }
+//
+//}
+//
+//
+//interface OnClickListener {
+//    fun onClick()
+//}
 
 
 
