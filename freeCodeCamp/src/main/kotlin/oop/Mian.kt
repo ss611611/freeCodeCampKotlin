@@ -1,41 +1,76 @@
 package oop
 
-
 fun main(args: Array<String>) {
 
+    val loginButton = Button("Login",1232, object : OnClickListener{
+        override fun onClick() {
+            // login the user
+        }
+
+    })
+    val signUpButton = Button("Sign Up",1232, object : OnClickListener{
+        override fun onClick() {
+            // sign up the user
+        }
+
+    })
 }
 
-interface Engine {
-    fun startEngine()
-}
+class Button(val text: String, val id: Int, onClickListener: OnClickListener)
 
-class Car(val name: String, val color: String) : Engine {
-    override fun startEngine() {
-        println("The car is starting the engine")
+class ClickListener() : OnClickListener {
+    override fun onClick() {
+
     }
 
 }
 
-class Truck(val name: String, val color: String) : Engine {
-    override fun startEngine() {
-        println("The truck is starting the engine")
-    }
 
+interface OnClickListener {
+    fun onClick()
 }
 
-class Plane(val name: String, val color: String) : Engine {
-    override fun startEngine() {
-        println("The plane is starting the engine")
-    }
 
-}
 
-class Tesla(val name: String, val color: String) : Engine {
-    override fun startEngine() {
-        println("tesla is starting the engine")
-    }
+/*
+OOP: Interfaces 2
+ */
 
-}
+//fun main(args: Array<String>) {
+//
+//}
+//
+//interface Engine {
+//    fun startEngine()
+//}
+//
+//class Car(val name: String, val color: String) : Engine {
+//    override fun startEngine() {
+//        println("The car is starting the engine")
+//    }
+//
+//}
+//
+//class Truck(val name: String, val color: String) : Engine {
+//    override fun startEngine() {
+//        println("The truck is starting the engine")
+//    }
+//
+//}
+//
+//class Plane(val name: String, val color: String) : Engine {
+//    override fun startEngine() {
+//        println("The plane is starting the engine")
+//    }
+//
+//}
+//
+//class Tesla(val name: String, val color: String) : Engine {
+//    override fun startEngine() {
+//        println("tesla is starting the engine")
+//    }
+//
+//}
 
 /*
 OOP: Data Class
