@@ -1,31 +1,49 @@
 package collectionsOperations
 
 fun main() {
-    val numbersStrings = mutableListOf("one", "two", "three", "four", "five","six")
-    println(numbersStrings.slice(1..3))
-    println(numbersStrings.slice(0..4 step 2))
-    println(numbersStrings.slice(setOf(3, 5, 0)))
+    val numbers = listOf("one", "two", "three", "four", "five")
+    println(numbers.elementAt(3))
+    println(numbers.first())
+    println(numbers.last())
 
     println("\n")
-    println(numbersStrings.take(3))
-    println(numbersStrings.takeLast(3))
-    println(numbersStrings.drop(1))
-    println(numbersStrings.dropLast(5))
-
-    println("\n")
-    println(numbersStrings.takeWhile { !it.startsWith("f") })
-    println(numbersStrings.takeLastWhile { it != "three" })
-    println(numbersStrings.dropWhile { it.length == 3 })
-    println(numbersStrings.dropLastWhile { it.contains("i") })
-
-    val numbers = (0..13).toList()
-    println(numbers.chunked(3))
-    println(numbers.chunked(3) {it.sum()})
-
-    println("\n")
-    val numbersStrings2 = numbersStrings
-    println(numbersStrings2.windowed(3))
+    println(numbers.first { it.length > 3 })
+    println(numbers.last { it.startsWith("f") })
+    println(numbers.random())
+    println(numbers.isEmpty())
 }
+
+
+
+        /*
+        Retrieve Collection parts
+         */
+//fun main() {
+//    val numbersStrings = mutableListOf("one", "two", "three", "four", "five","six")
+//    println(numbersStrings.slice(1..3))
+//    println(numbersStrings.slice(0..4 step 2))
+//    println(numbersStrings.slice(setOf(3, 5, 0)))
+//
+//    println("\n")
+//    println(numbersStrings.take(3))
+//    println(numbersStrings.takeLast(3))
+//    println(numbersStrings.drop(1))
+//    println(numbersStrings.dropLast(5))
+//
+//    println("\n")
+//    println(numbersStrings.takeWhile { !it.startsWith("f") })
+//    println(numbersStrings.takeLastWhile { it != "three" })
+//    println(numbersStrings.dropWhile { it.length == 3 })
+//    println(numbersStrings.dropLastWhile { it.contains("i") })
+//
+//    val numbers = (0..13).toList()
+//    println(numbers.chunked(3))
+//    println(numbers.chunked(3) {it.sum()})
+//
+//    println("\n")
+//    val numbersStrings2 = numbersStrings
+//    println(numbersStrings2.windowed(3))
+//}
 
 
 
