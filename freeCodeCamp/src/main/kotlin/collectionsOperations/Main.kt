@@ -1,12 +1,22 @@
 package collectionsOperations
 
 fun main() {
-    val numbers = mutableListOf("one","two","three","four")
-    val plusList = numbers + "five"
-    val minusList = numbers - mutableListOf("three","four")
-    println(plusList)
-    println(minusList)
+    val numbers = mutableListOf("one","two","three","four","five")
+    println(numbers.groupBy { it.first().uppercase() })
+    println(numbers.groupBy(keySelector = {it.first()}, valueTransform = {it.uppercase()}))
 }
+
+
+        /*
+        Plus and Minus Operators
+         */
+//fun main() {
+//    val numbers = mutableListOf("one","two","three","four")
+//    val plusList = numbers + "five"
+//    val minusList = numbers - mutableListOf("three","four")
+//    println(plusList)
+//    println(minusList)
+//}
 
 
      /*
