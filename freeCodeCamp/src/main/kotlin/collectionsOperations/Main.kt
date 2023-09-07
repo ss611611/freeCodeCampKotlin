@@ -1,20 +1,52 @@
 package collectionsOperations
 
 fun main() {
-    val numbersStrings = listOf("one", "two", "three", "four")
-    println(numbersStrings)
-    println(numbersStrings.joinToString())
+    val  numbers = listOf("one","two","three","four")
+    val longThan3 = numbers.filter { it.length > 3 }
+    println(longThan3)
 
-    val listString = StringBuffer("The list of numbers: ")
-    println(numbersStrings.joinTo(listString))
+    val numbersMap = mapOf("key 1" to 1, "key 2" to 2, "key 3" to 3, "key 101" to 101)
+    val filteredMap = numbersMap.filter { it.key.endsWith("1") && it.value > 100 }
+    println(filteredMap)
 
-    println(numbersStrings.joinToString(separator = " | ", prefix = "start: ", postfix = ": end"))
+    val filteredIdx = numbers.filterIndexed { index, value -> (index != 0) && (value.length < 5) }
+    val filteredNot = numbers.filterNot { it.length <= 3 }
+    println(filteredIdx)
+    println(filteredNot)
 
-    val numbers = (1..100).toList()
-    println(numbers.joinToString(limit = 25, truncated = "<...>"))
+    val mixedList = listOf(1,2,3,'A','B','C',"Hello World","Alex",false)
+    mixedList.filterIsInstance<Boolean>().forEach {
+        println(it)
+    }
+    //Partition
+    println("\n")
 
-    println(numbersStrings.joinToString { "Element: ${it.uppercase()}" })
+    val (match,rest) = numbers.partition { it.length > 3 }
+    println(match)
+    println(rest)
+
 }
+
+
+
+    /*
+    String Representation
+     */
+//fun main() {
+//    val numbersStrings = listOf("one", "two", "three", "four")
+//    println(numbersStrings)
+//    println(numbersStrings.joinToString())
+//
+//    val listString = StringBuffer("The list of numbers: ")
+//    println(numbersStrings.joinTo(listString))
+//
+//    println(numbersStrings.joinToString(separator = " | ", prefix = "start: ", postfix = ": end"))
+//
+//    val numbers = (1..100).toList()
+//    println(numbers.joinToString(limit = 25, truncated = "<...>"))
+//
+//    println(numbersStrings.joinToString { "Element: ${it.uppercase()}" })
+//}
 
 
 
