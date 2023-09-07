@@ -24,7 +24,9 @@ fun main() {
     val (match,rest) = numbers.partition { it.length > 3 }
     println(match)
     println(rest)
-
+    println(numbers.any() {it.endsWith("e")})
+    println(numbers.none() {it.endsWith("w")})
+    println(numbers.all { it.length > 1 })
 }
 
 
