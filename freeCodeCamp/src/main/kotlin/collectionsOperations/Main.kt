@@ -1,14 +1,97 @@
 package collectionsOperations
 
 fun main() {
-    val numbers = listOf(6, 10, 14, 4, 100)
-    println("The sum is ${numbers.sum()}")
-    println("The count is: ${numbers.count()}")
-    println("The average is: ${numbers.average()}")
-    println("The max value is: ${numbers.maxOrNull()}")
-    println("The nin value is: ${numbers.minOrNull()}")
-    println("The sum is: ${numbers.sumOf { it * 2 }}")
+    val numbers = mutableListOf(2,5,1,40,20,100,60)
+    numbers.sorted().forEach { println(it) }
+
+    val laptops = mutableListOf(
+        Laptop("Dell", 2021,4,600),
+        Laptop("Acer", 2020,8,800),
+        Laptop("Dell", 2022,16,1000),
+    )
+
+    laptops.sortedWith(compareBy { it.price }).forEach { println(it) }
+    println("\n")
+    laptops.sortedWith(compareBy { it.ram }).forEach { println(it) }
+    println("\n")
+    laptops.sortedWith(compareBy<Laptop> { it.year }.thenBy { it.price })
+
 }
+
+data class Laptop(val brand: String, val year: Int, val ram: Int, val price: Int)
+
+//fun main() {
+//    val numbers = mutableListOf(2,5,1,40,20,100,60)
+//    numbers.sorted().forEach { println(it) }
+//
+//    val laptops = mutableListOf(
+//        Laptop("Dell", 2021,4,600),
+//        Laptop("Acer", 2020,8,800),
+//        Laptop("Dell", 2022,16,1000),
+//    )
+
+//    println("\n")
+//    laptops.sorted().forEach { println(it) }
+//    println("\n")
+//
+//    laptops.sortedWith(ComparatorRam()).forEach { println(it) }
+//    println("\n")
+//    laptops.sortedWith(ComparatorYear()).forEach { println(it) }
+//}
+
+//data class Laptop(val brand: String, val year: Int, val ram: Int, val price: Int) : Comparable<Laptop> {
+//    override fun compareTo(other: Laptop): Int {
+//        return if (this.price > other.price) {
+//            println("In if statement: Swapping ${this.brand} with ${other.brand}")
+//            1
+//        } else if (this.price < other.price) {
+//            println("In if statement: Swapping ${this.brand} with ${other.brand}")
+//            -1
+//        } else {
+//            0
+//        }
+//    }
+//}
+//
+//class ComparatorRam : Comparator<Laptop> {
+//    override fun compare(laptop1: Laptop, laptop2: Laptop): Int {
+//        return if (laptop1.ram > laptop2.ram) {
+//            return 1
+//        } else if (laptop1.ram < laptop2.ram) {
+//            return -1
+//        } else {
+//            return 0
+//        }
+//    }
+//}
+//
+//
+//class ComparatorYear : Comparator<Laptop> {
+//    override fun compare(laptop1: Laptop, laptop2: Laptop): Int {
+//        return if (laptop1.year > laptop2.year) {
+//            return 1
+//        } else if (laptop1.year < laptop2.year) {
+//            return -1
+//        } else {
+//            return 0
+//        }
+//    }
+//}
+
+
+
+        /*
+        Aggregate Operations
+         */
+//fun main() {
+//    val numbers = listOf(6, 10, 14, 4, 100)
+//    println("The sum is ${numbers.sum()}")
+//    println("The count is: ${numbers.count()}")
+//    println("The average is: ${numbers.average()}")
+//    println("The max value is: ${numbers.maxOrNull()}")
+//    println("The nin value is: ${numbers.minOrNull()}")
+//    println("The sum is: ${numbers.sumOf { it * 2 }}")
+//}
 
 
             /*
