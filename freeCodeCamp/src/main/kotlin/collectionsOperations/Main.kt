@@ -1,24 +1,69 @@
 package collectionsOperations
 
 fun main() {
-    val numbers = mutableListOf(2,5,1,40,20,100,60)
-    numbers.sorted().forEach { println(it) }
-
-    val laptops = mutableListOf(
-        Laptop("Dell", 2021,4,600),
-        Laptop("Acer", 2020,8,800),
-        Laptop("Dell", 2022,16,1000),
-    )
-
-    laptops.sortedWith(compareBy { it.price }).forEach { println(it) }
-    println("\n")
-    laptops.sortedWith(compareBy { it.ram }).forEach { println(it) }
-    println("\n")
-    laptops.sortedWith(compareBy<Laptop> { it.year }.thenBy { it.price })
-
+    println(searchElement(27, mutableListOf(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)))
 }
 
-data class Laptop(val brand: String, val year: Int, val ram: Int, val price: Int)
+private fun searchElement(searchElement: Int, numbers: MutableList<Int>): Int {
+    return numbers[numbers.binarySearch(27)]
+}
+
+//private fun searchElement(searchElement: Int, numbers: MutableList<Int>): Int {
+//    var low = 0
+//    var high = numbers.size -1
+//
+//    var i = 0
+//    while (low <= high) {
+//        i++
+//        println("Search number: $i")
+//        val mid = (low + high) / 2
+//        val cmp = numbers[mid].compareTo(searchElement)
+//
+//        if (cmp < 0) {
+//            low = mid + 1
+//        } else if (cmp > 0) {
+//            low = mid - 1
+//        } else {
+//            return numbers[mid]
+//        }
+//    }
+//    return -1
+//}
+
+
+
+//private fun searchElement(searchElement: Int, numbers: MutableList<Int>): Int {
+//    var i = 0
+//    for (number in numbers) {
+//        i++
+//        println("Search number: $i")
+//        if (number == searchElement) {
+//            return number
+//        }
+//    }
+//    return -1
+//}
+
+
+//fun main() {
+//    val numbers = mutableListOf(2,5,1,40,20,100,60)
+//    numbers.sorted().forEach { println(it) }
+//
+//    val laptops = mutableListOf(
+//        Laptop("Dell", 2021,4,600),
+//        Laptop("Acer", 2020,8,800),
+//        Laptop("Dell", 2022,16,1000),
+//    )
+//
+//    laptops.sortedWith(compareBy { it.price }).forEach { println(it) }
+//    println("\n")
+//    laptops.sortedWith(compareBy { it.ram }).forEach { println(it) }
+//    println("\n")
+//    laptops.sortedWith(compareBy<Laptop> { it.year }.thenBy { it.price })
+//
+//}
+//
+//data class Laptop(val brand: String, val year: Int, val ram: Int, val price: Int)
 
 //fun main() {
 //    val numbers = mutableListOf(2,5,1,40,20,100,60)
