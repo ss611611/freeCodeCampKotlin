@@ -1,12 +1,48 @@
 package collectionsOperations
 
-fun main() {
-    println(searchElement(27, mutableListOf(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)))
+fun main(arrays:Array<String>) {
+
+    val footballPlayer = FootballPlayer("Football player 1")
+    val footballPlayer2 = FootballPlayer("Football player 2")
+
+    val baseballPlayer = BaseballPlayer("Baseball player 1")
+    val baseballPlayer2 = BaseballPlayer("Baseball player 2")
+
+    val footballTeam = Team("Football team", mutableListOf(footballPlayer))
+    footballTeam.addPlayers(footballPlayer2)
+
+    val baseballTeam = Team("Baseball Team", mutableListOf(baseballPlayer))
+    baseballTeam.addPlayers(baseballPlayer2)
+
+    val gamesTeam = Team<GamesPlayer>("Games Team", mutableListOf())
 }
 
-private fun searchElement(searchElement: Int, numbers: MutableList<Int>): Int {
-    return numbers[numbers.binarySearch(27)]
+
+class Team<T: Player>(val name: String, val players: MutableList<T>) {
+
+    fun addPlayers(player: T) {
+        if (players.contains(player)) {
+            println("Player: ${player.name} is already in the team ${this.name}")
+        } else {
+            players.add(player)
+            println("Player: ${player.name} was added in the team ${this.name}")
+        }
+    }
 }
+
+open class  Player(val name: String)
+
+class FootballPlayer(name: String) : Player(name)
+class BaseballPlayer(name: String) : Player(name)
+class GamesPlayer(name: String) : Player(name)
+
+//fun main() {
+//    println(searchElement(27, mutableListOf(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)))
+//}
+//
+//private fun searchElement(searchElement: Int, numbers: MutableList<Int>): Int {
+//    return numbers[numbers.binarySearch(27)]
+//}
 
 //private fun searchElement(searchElement: Int, numbers: MutableList<Int>): Int {
 //    var low = 0
